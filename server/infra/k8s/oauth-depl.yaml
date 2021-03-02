@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oauth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oauth
+  template:
+    metadata:
+      labels:
+        app: oauth
+    spec:
+      containers:
+        - name: oauth
+          image: padugyamfi/oauth
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: oauth-srv
+spec:
+  selector:
+    app: oauth
+  ports:
+    - name: oauth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
