@@ -11,9 +11,6 @@ const connectDB = require('./config/db.config')
 require('./config/passport.config')(passport)
 
 
-// connect to MongoDB database
-connectDB()
-
 const app = express()
 
 app.use(cors())
@@ -37,6 +34,8 @@ app.get('/test/pls', (req, res) => {
   res.send('HELLLOOOOOO')
 })
 
+// connect to MongoDB database
+connectDB()
 
 app.listen(process.env.PORT, ()=>{
   console.log(`Server running on port ${process.env.PORT}....`)
