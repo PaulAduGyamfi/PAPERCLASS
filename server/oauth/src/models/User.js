@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const {ObjectId} = mongoose.Schema.Types
 
 const UserSchema = new mongoose.Schema({
   googleId: {
@@ -35,21 +36,26 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  datOfBirth:{
-    type: Date
-  },
   graduationYear: {
     type: String,
     required: false
   },
-  graduatingClass:{
+  degreeProgram:{
     type: String,
     required: false
   },
-  degree: {
-    type: Map,
-    of: String
+  degreeMajor: {
+    type: String,
+    required: false
   },
+  programsFollowing: [{
+    type: ObjectId,
+    ref: "Program"
+  }],
+  coursesFollowing: [{
+    type: ObjectId,
+    ref: "Course"
+  }],
   socialMediaHandles: {
     type: Map,
     of: String
