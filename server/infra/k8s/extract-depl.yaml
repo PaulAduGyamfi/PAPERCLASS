@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: extract-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: extract
+  template:
+    metadata:
+      labels:
+        app: extract
+    spec:
+      containers:
+        - name: extract
+          image: padugyamfi/extract
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: extract-srv
+spec:
+  selector:
+    app: extract
+  ports:
+    - name: extract
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
