@@ -26,6 +26,7 @@ app.use(passport.session())
 
 
 app.use('/', require('./routes/auth.route'))
-app.use('/auth', require('./routes/oauth.route'))
+app.use('/auth', require('./routes/oauth.route'), require('./routes/signupflow.route'))
+
 
 module.exports = app

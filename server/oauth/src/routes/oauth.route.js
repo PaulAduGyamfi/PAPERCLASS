@@ -12,7 +12,7 @@ router.get("/google/redirect", passport.authenticate("google", {failureRedirect:
     
     // if it is user's first time logging in the redirect to sign up flow
    if(req.user.newRegister){
-     res.redirect('/signupflow')
+     res.redirect('/auth/signup')
    }else{
     
     // otherwise just send them to their homepage
