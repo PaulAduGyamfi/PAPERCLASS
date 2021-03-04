@@ -7,7 +7,6 @@ router.get('/signup',userMustSignUp,(req, res) => {
 })
 
 router.post('/signup', (req, res) => {
-  
 })
 
 module.exports = router
