@@ -1,5 +1,4 @@
 const Program = require('../models/Program')
-const programArray = require('../config/programs.config')
 
 const createProgram = async(profile) => {
   const newProgram = {
