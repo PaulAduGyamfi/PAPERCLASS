@@ -10,7 +10,7 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-
+app.use('/programs', require('./routes/program.route'))
 
 
 module.exports = app

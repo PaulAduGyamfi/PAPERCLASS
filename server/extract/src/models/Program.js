@@ -6,14 +6,14 @@ const ProgramSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  programCode: {
+    type: String,
+    required: true
+  },
   programCourses: [{
     type: ObjectId,
     ref: "Course"
-  }],
-  programDescription: {
-    type: String,
-    required: false,
-  },
+  }]
   
   
   
