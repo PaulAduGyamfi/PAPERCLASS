@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const {ObjectId} = mongoose.Schema.Types
 
 const UserSchema = new mongoose.Schema({
-  googleId: {
+  google_id: {
     type: String,
     unique: true,
     required: true
@@ -12,15 +12,15 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     required: false,
   },
-  fullName: {
+  full_name: {
     type: String,
     required: true
   },
-  firstName: {
+  first_name: {
     type: String,
     required: true
   },
-  lastName: {
+  last_name: {
     type: String,
     required: true
   },
@@ -28,57 +28,68 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  image: {
+  profile_image_url: {
     type: String,
     required: true
   },
-  bio: {
+  description: {
     type: String,
     required: false
   },
-  graduationYear: {
+  location: {
+    type: String
+  },
+  pinnned_post_id: {
+    type: ObjectId,
+    ref: 'Post'
+  },
+  user_posts:[{
+    type: ObjectId,
+    ref: 'Post'
+  }],
+  user_saved_posts: [{
+    type: ObjectId,
+    ref: 'Post'
+  }],
+  graduation_year: {
     type: String,
     required: false
   },
-  degreeProgram:{
+  degree_program:{
     type: String,
     required: false
   },
-  degreeMajor: {
+  degree_major: {
     type: String,
     required: false
   },
-  programsFollowing: [{
+  programs_following: [{
     type: ObjectId,
     ref: "Program"
   }],
-  coursesFollowing: [{
-    type: ObjectId,
-    ref: "Course"
-  }],
-  socialMediaHandles: {
+  social_media_handles: {
     type: Map,
     of: String
   },
-  profilePrivacy: {
-    type: String,
+  profile_private: {
+    type: Boolean,
     required: true,
-    default: 'public'
+    default: false
   },
   permissions: {
     type: Number,
     default: -1,
     required: true
   },
-  createdAt: {
+  created_at: {
     type: Date,
     default: Date.now
   },
-  modifiedOn: {
+  modified_at: {
     type: Date,
     default: Date.now
   },
-  newRegister: {
+  new_register: {
     type: Boolean,
     default: true,
     required: true

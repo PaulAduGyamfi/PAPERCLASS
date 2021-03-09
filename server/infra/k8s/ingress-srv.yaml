@@ -10,9 +10,9 @@ spec:
     - host: paperclass.com
       http:
         paths:
-          - path: /programs/?(.*)
+          - path: /post/?(.*)
             backend:
-              serviceName: extract-srv
+              serviceName: post-srv
               servicePort: 3000
           - path: /?(.*)
             backend:

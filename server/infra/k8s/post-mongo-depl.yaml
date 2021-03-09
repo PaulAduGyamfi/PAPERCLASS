@@ -1,28 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: extract-mongo-depl
+  name: post-mongo-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: extract-mongo
+      app: post-mongo
   template:
     metadata:
       labels:
-        app: extract-mongo
+        app: post-mongo
     spec:
       containers:
-        - name: extract-mongo
+        - name: post-mongo
           image: mongo
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: extract-mongo-srv
+  name: post-mongo-srv
 spec:
   selector:
-    app: extract-mongo
+    app: post-mongo
   ports:
     - name: db
       protocol: TCP

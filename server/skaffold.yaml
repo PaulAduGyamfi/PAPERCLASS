@@ -16,8 +16,8 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
-    - image: padugyamfi/extract
-      context: extract
+    - image: padugyamfi/post
+      context: post
       docker:
         dockerfile: Dockerfile
       sync:

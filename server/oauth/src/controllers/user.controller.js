@@ -2,12 +2,12 @@ const User = require('../models/User')
 
 const createUser = async (accessToken, refreshToken, profile, done) => {
   const newUser = {
-    googleId: profile.id,
-    fullName: profile.displayName,
-    firstName: profile.name.givenName,
-    lastName: profile.name.familyName,
+    google_id: profile.id,
+    full_name: profile.displayName,
+    first_name: profile.name.givenName,
+    last_name: profile.name.familyName,
     email: profile.emails[0].value,
-    image: profile.photos[0].value
+    profile_image_url: profile.photos[0].value
   }
 
   try{

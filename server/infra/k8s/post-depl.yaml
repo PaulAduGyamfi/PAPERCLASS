@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: extract-depl
+  name: post-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: extract
+      app: post
   template:
     metadata:
       labels:
-        app: extract
+        app: post
     spec:
       containers:
-        - name: extract
-          image: padugyamfi/extract
+        - name: post
+          image: padugyamfi/post
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: extract-srv
+  name: post-srv
 spec:
   selector:
-    app: extract
+    app: post
   ports:
-    - name: extract
+    - name: post
       protocol: TCP
       port: 3000
       targetPort: 3000
