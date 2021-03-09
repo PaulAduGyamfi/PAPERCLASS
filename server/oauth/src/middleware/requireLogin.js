@@ -1,9 +1,9 @@
 module.exports = {
   requireLogin: (req, res, next) => {
     // check if user is logged in
-    if(req.isAuthenticated() && !req.user.newRegister){
+    if(req.isAuthenticated() && !req.user.new_register){
       return next()
-    }else if(req.isAuthenticated() && req.user.newRegister){
+    }else if(req.isAuthenticated() && req.user.new_register){
       res.redirect('/auth/signup')
     }else{
       // if user is not logged in send them back to login/sign up page
@@ -19,10 +19,10 @@ module.exports = {
     }
   },
   userMustSignUp: (req, res,next) => {
-    if(req.isAuthenticated() && req.user.newRegister){
+    if(req.isAuthenticated() && req.user.new_register){
       return next()
     }
-    else if(req.isAuthenticated() && !req.user.newRegister){
+    else if(req.isAuthenticated() && !req.user.new_register){
       res.redirect('/feed')
     }
     else{

@@ -10,12 +10,7 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  post_id: {
-    type: Number,
-    unique: true,
-    required: true
-  },
-  post_id_str:{
+  post_id:{
     type: String,
     required: true,
   },
