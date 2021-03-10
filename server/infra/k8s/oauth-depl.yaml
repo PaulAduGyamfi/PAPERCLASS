@@ -15,6 +15,32 @@ spec:
       containers:
         - name: oauth
           image: padugyamfi/oauth
+          env:
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: keys
+                  key: PORT
+            - name: MONGO_OAUTH_URI
+              valueFrom:
+                secretKeyRef:
+                  name: keys
+                  key: MONGO_OAUTH_URI
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: keys
+                  key: GOOGLE_CLIENT_ID
+            - name: CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keys
+                  key: CLIENT_SECRET
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: keys
+                  key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service

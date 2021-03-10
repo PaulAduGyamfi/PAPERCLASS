@@ -12,7 +12,7 @@ const createUser = async (accessToken, refreshToken, profile, done) => {
 
   try{
     // search our database for an existing user
-    let user = await User.findOne({ googleId: profile.id})
+    let user = await User.findOne({ google_id: profile.id})
     if(user){
       // already have the user
       done(null, user)
