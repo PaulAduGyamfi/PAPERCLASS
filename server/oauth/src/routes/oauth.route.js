@@ -25,7 +25,7 @@ router.get("/google/redirect", passport.authenticate("google", {failureRedirect:
 )
 
 // auth logout
-router.get("/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   // handle with passport
   req.logout()
   res.redirect('/')

@@ -2,27 +2,32 @@ const express = require('express')
 const router = express.Router()
 const randomBytes = require('randombytes')
 const Post = require('../models/Post')
+const { currentUser } = require('../middleware/current-user')
+const { requireAuth } = require('../middleware/require-auth')
 
-router.post('/', (req,res)=>{
+
+
+router.post('/', currentUser, requireAuth, async (req,res)=>{
   const id = randomBytes(8).toString('hex')
-  const { author, author_id, text, attachments} = req.body
+  const { text, attachments} = req.body
 
   const new_post = {
-    author,
-    author_id,
+    author: req.currentUser.full_name,
+    author_id: req.currentUser._id,
     text,
     post_id: id
   }
 
-  Post.create(new_post)
+  await Post.create(new_post)
 
   res.status(201).send(new_post)
   
 
 })
 
-router.get("/", (req, res) => {
-  res.send(req.session)
+router.get("/", currentUser, requireAuth, async (req, res) => {
+ 
+  res.send({currentUser: req.currentUser || null})
 })
 
 module.exports = router
