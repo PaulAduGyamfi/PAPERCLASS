@@ -10,7 +10,7 @@ spec:
     - host: paperclass.com
       http:
         paths:
-          - path: /post/?(.*)
+          - path: /api/post/?(.*)
             backend:
               serviceName: post-srv
               servicePort: 3000
