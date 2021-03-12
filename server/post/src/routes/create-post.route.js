@@ -2,8 +2,7 @@ const express = require('express')
 const router = express.Router()
 const randomBytes = require('randombytes')
 const Post = require('../models/Post')
-const { currentUser } = require('../middleware/current-user')
-const { requireAuth } = require('../middleware/require-auth')
+const { requireAuth, currentUser } = require('@pgcomm/common')
 
 
 
