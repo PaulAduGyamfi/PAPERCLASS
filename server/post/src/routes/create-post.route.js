@@ -24,9 +24,9 @@ router.post('/', currentUser, requireAuth, async (req,res)=>{
 
 })
 
-// router.get("/", currentUser, requireAuth, async (req, res) => {
+router.get("/", currentUser, requireAuth, async (req, res) => {
  
-//   res.send({currentUser: req.currentUser || null})
-// })
+  res.send({currentUser: req.currentUser || null})
+})
 
 module.exports = router
