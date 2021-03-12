@@ -10,6 +10,10 @@ spec:
     - host: paperclass.com
       http:
         paths:
+        - path: /api/comment/?(.*)
+            backend:
+              serviceName: comment-srv
+              servicePort: 3000
           - path: /api/post/?(.*)
             backend:
               serviceName: post-srv
