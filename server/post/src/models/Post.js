@@ -56,6 +56,10 @@ const PostSchema = new mongoose.Schema({
   }],
   post_url: {
     type: String,
+  },
+  deleted_at: {
+    type: Date,
+    default: null
   }
 })
 

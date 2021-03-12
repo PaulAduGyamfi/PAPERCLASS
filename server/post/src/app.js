@@ -3,7 +3,6 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const createPost = require('./routes/create-post.route')
-const getPostById = require('./routes/get-post-by-id.route')
 require('dotenv').config()
 
 
@@ -19,6 +18,6 @@ app.use(
   })
 )
 
-app.use('/api/post', createPost, getPostById)
+app.use('/api/post', createPost)
 
 module.exports = app
