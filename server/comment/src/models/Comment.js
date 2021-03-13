@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const {ObjectId} = mongoose.Schema.Types
 
-const PostSchema = new mongoose.Schema({
+const CommentSchema = new mongoose.Schema({
   created_at: {
     type: Date,
     default: Date.now
@@ -10,7 +10,11 @@ const PostSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  post_id:{
+  original_post_id:{
+    type: String,
+    required: true,
+  },
+  comment_id:{
     type: String,
     required: true,
   },
@@ -30,6 +34,15 @@ const PostSchema = new mongoose.Schema({
     ref: 'Media'
 
   }],
+  reply: [{
+    type: ObjectId,
+    ref: 'Comment'
+
+  }],
+  reply_count: {
+    type: Number,
+    default: 0
+  },
   vote_count: {
     type: Number,
     default: 0
@@ -42,23 +55,7 @@ const PostSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'User'
   }],
-  comment_count: {
-    type: Number,
-    default: 0
-  },
-  comments: [{
-    type: ObjectId,
-    ref: 'User'
-  }],
-  repost_count: {
-    type: Number,
-    default: 0
-  },
-  reposts: [{
-    type: ObjectId,
-    ref: 'User'
-  }],
-  post_url: {
+  comment_url: {
     type: String,
   },
   deleted_at: {
@@ -67,4 +64,4 @@ const PostSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Post', PostSchema)
+module.exports = mongoose.model('Comment', CommentSchema)

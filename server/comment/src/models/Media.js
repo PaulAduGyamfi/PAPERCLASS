@@ -22,7 +22,7 @@ const MediaSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'Post'
 
-  }
+  },
 
 })
 
