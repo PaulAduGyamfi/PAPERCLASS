@@ -3,7 +3,7 @@ require('dotenv').config()
 
 const connectDB  = async () => {
   try{
-    const connect = await mongoose.connect(process.env.MONGO_COMMENT_URI, {
+    const connect = await mongoose.connect(process.env.MONGO_USER_URI, {
       useNewUrlParser:true,
       useUnifiedTopology: true,
       useFindAndModify: false

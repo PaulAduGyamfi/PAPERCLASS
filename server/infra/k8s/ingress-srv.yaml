@@ -10,15 +10,11 @@ spec:
     - host: paperclass.com
       http:
         paths:
-          - path: /api/comment/?(.*)
-            backend:
-              serviceName: comment-srv
-              servicePort: 3000
           - path: /api/post/?(.*)
             backend:
-              serviceName: post-srv
+              serviceName: post-ingestion-srv
               servicePort: 3000
           - path: /?(.*)
             backend:
-              serviceName: oauth-srv
+              serviceName: user-srv
               servicePort: 3000

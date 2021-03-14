@@ -14,6 +14,16 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  repost_id:{
+    type: String,
+  },
+  repost_count: {
+    type: Number,
+    default: 0
+  },
+  repost_author: [{
+    type: String,
+  }],
   author: {
     type: String,
     required: true
@@ -47,14 +57,6 @@ const PostSchema = new mongoose.Schema({
     default: 0
   },
   comments: [{
-    type: ObjectId,
-    ref: 'User'
-  }],
-  repost_count: {
-    type: Number,
-    default: 0
-  },
-  reposts: [{
     type: ObjectId,
     ref: 'User'
   }],

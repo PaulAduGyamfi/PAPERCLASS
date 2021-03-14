@@ -8,32 +8,32 @@ build:
   local:
     push: false
   artifacts:
-    - image: padugyamfi/oauth
-      context: oauth
+    - image: padugyamfi/user
+      context: user
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.js'
             dest: .
-    - image: padugyamfi/post
-      context: post
+    - image: padugyamfi/post-ingestion
+      context: post-ingestion
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.js'
             dest: .
-    - image: padugyamfi/comment
-      context: comment
+    - image: padugyamfi/friend
+      context: friend
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.js'
             dest: .
-    - image: padugyamfi/query
-      context: query
+    - image: padugyamfi/post-service
+      context: post-service
       docker:
         dockerfile: Dockerfile
       sync:

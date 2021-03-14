@@ -17,6 +17,6 @@ app.use(
   })
 )
 
-// app.use('/api/post', createPost, getPostById)
+// app.use('/api/post',)
 
 module.exports = app

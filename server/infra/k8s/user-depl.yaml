@@ -1,56 +1,56 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oauth-depl
+  name: user-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: oauth
+      app: user
   template:
     metadata:
       labels:
-        app: oauth
+        app: user
     spec:
       containers:
-        - name: oauth
-          image: padugyamfi/oauth
+        - name: user
+          image: padugyamfi/user
           env:
             - name: PORT
               valueFrom:
                 secretKeyRef:
-                  name: keys
+                  name: user-keys
                   key: PORT
-            - name: MONGO_OAUTH_URI
+            - name: MONGO_USER_URI
               valueFrom:
                 secretKeyRef:
-                  name: keys
-                  key: MONGO_OAUTH_URI
+                  name: user-keys
+                  key: MONGO_USER_URI
             - name: GOOGLE_CLIENT_ID
               valueFrom:
                 secretKeyRef:
-                  name: keys
+                  name: user-keys
                   key: GOOGLE_CLIENT_ID
             - name: CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: keys
+                  name: user-keys
                   key: CLIENT_SECRET
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
-                  name: keys
+                  name: user-keys
                   key: JWT_KEY
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: oauth-srv
+  name: user-srv
 spec:
   selector:
-    app: oauth
+    app: user
   ports:
-    - name: oauth
+    - name: user
       protocol: TCP
       port: 3000
       targetPort: 3000

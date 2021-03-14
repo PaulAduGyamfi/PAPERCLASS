@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: comment-depl
+  name: post-service-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: comment
+      app: post-service
   template:
     metadata:
       labels:
-        app: comment
+        app: post-service
     spec:
       containers:
-        - name: comment
-          image: padugyamfi/comment
+        - name: post-service
+          image: padugyamfi/post-service
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: comment-srv
+  name: post-service-srv
 spec:
   selector:
-    app: comment
+    app: post-service
   ports:
-    - name: comment
+    - name: post-service
       protocol: TCP
       port: 3000
       targetPort: 3000
