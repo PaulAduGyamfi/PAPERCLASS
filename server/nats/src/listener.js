@@ -1,5 +1,6 @@
 const nats = require('node-nats-streaming')
 const {randomBytes} = require('crypto')
+const { PostCreatedListener } = require('./events/post-created-listener')
 
 console.clear()
 
@@ -15,22 +16,8 @@ stan.on('connect', () => {
     process.exit()
   })
 
-  const options = stan
-  .subscriptionOptions()
-  .setManualAckMode(true)
+  new PostCreatedListener(stan).listen()
 
-  const subscription = stan.subscribe(
-    'post:created',
-    'query-service-queue-group',
-    options
-    )
-
-  subscription.on('message', (msg) => {
-    const data = msg.getData()
-    console.log(`Received event #${msg.getSequence()}, with data: ${data}`)
-
-    msg.ack()
-  })
 })
 
 process.on('SIGINT', () => stan.close())
