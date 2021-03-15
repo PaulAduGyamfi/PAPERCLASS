@@ -1,5 +1,7 @@
 /**
- @class Listener
+ * @abstract
+ * @class
+ * This abstract class can be inherited to listening for events and receive data from events
  */
  class Listener {
   _subject
@@ -14,10 +16,21 @@
       // }
    }
 
+    /**
+     * 
+     * @param {Object} _data
+     * ... parsed information recieved from event
+     * @param {Object} _msg 
+     * ...unparsed information received from event
+     */
    onMessage(_data, _msg) {
      throw new Error('You have to implement the method onMessage!')
    }
 
+   /**
+    * 
+    * @returns sets options to be exectuted on the client
+    */
    subscriptionOptions() {
      return this.#client
         .subscriptionOptions()
@@ -27,6 +40,9 @@
         .setDurableName(this._queueGroupName)
    }
 
+   /**
+    * Subscribes to a channel and listens for an event, on an event it receives data
+    */
    listen() {
       const subscription = this.#client.subscribe(
         this._subject,
@@ -44,6 +60,11 @@
       })
    }
 
+   /**
+    * Parses JSON data received into string
+    * @param {Object} msg 
+    * @returns string object
+    */
    parseMessage(msg) {
       const data = msg.getData()
       return typeof data === 'string'

@@ -1,4 +1,5 @@
 const nats = require('node-nats-streaming')
+const { PostCreatedPublisher } = require('./events/post-created-publisher')
 
 console.clear()
 
@@ -9,12 +10,19 @@ const stan = nats.connect('server', 'abc', {
 stan.on('connect', () => {
   console.log('Publisher connected to NATS')
 
-  const data = JSON.stringify({
-    id: '123',
-    text: 'yoooo'
+  const publisher = new PostCreatedPublisher(stan)
+  publisher.publish({
+    author: 'John Doe',
+    author_id: '231923131',
+    text: 'YOOOOOOO!'
   })
 
-  stan.publish('post:created', data, () => {
-    console.log('Event published')
-  })
+  // const data = JSON.stringify({
+  //   id: '123',
+  //   text: 'yoooo'
+  // })
+
+  // stan.publish('post:created', data, () => {
+  //   console.log('Event published')
+  // })
 })
