@@ -7,15 +7,19 @@ const stan = nats.connect('server', 'abc', {
   url: 'http://localhost:4222'
 })
 
-stan.on('connect', () => {
+stan.on('connect', async () => {
   console.log('Publisher connected to NATS')
 
   const publisher = new PostCreatedPublisher(stan)
-  publisher.publish({
-    author: 'John Doe',
-    author_id: '231923131',
-    text: 'YOOOOOOO!'
-  })
+  try {
+    await publisher.publish({
+      author: 'John Doe',
+      author_id: '231923131',
+      text: 'YOOOOOOO!'
+    })
+  } catch (err) {
+    console.error(err)
+  }
 
   // const data = JSON.stringify({
   //   id: '123',

@@ -7,9 +7,16 @@ class Publisher {
   }
 
   publish(data) {
-    this.#client.publish(this._subject, JSON.stringify(data), () => {
-      console.log('Event published!')
+    return new Promise((resolve, reject) => {
+      this.#client.publish(this._subject, JSON.stringify(data), (err) => {
+        if(err){
+          return reject(err)
+        }
+        console.log('Event published too subject:', this._subject)
+        resolve()
+      })
     })
+    
   }
 
 }
