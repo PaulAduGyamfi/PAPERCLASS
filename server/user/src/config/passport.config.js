@@ -10,7 +10,7 @@ module.exports = (passport) => {
       // settings for google strategy
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "/auth/google/redirect"
+      callbackURL: "/api/user/auth/google/redirect"
     },
     async (accessToken, refreshToken, profile, done) => {
      

@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const connectDB  = async () => {
   try{
-    await nats.connect('server', '32h34k', 'http://nats-srv:4222')
+    await nats.connect(process.env.NATS_CLUSTER_ID, process.env.NATS_CLIENT_ID, process.env.NATS_URL)
     nats.client.on('close', () => {
       console.log('NATS connection closed!')
       process.exit()

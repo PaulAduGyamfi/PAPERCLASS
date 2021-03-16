@@ -4,10 +4,10 @@ const passport = require('passport')
 const jwt = require('jsonwebtoken')
 
 // auth with google
-router.get("/google", passport.authenticate("google",{scope: ["profile", "email"],hd: ["stonybrook.edu"], prompt: ["select_account"]}))
+router.get("/api/user/auth/google", passport.authenticate("google",{scope: ["profile", "email"],hd: ["stonybrook.edu"], prompt: ["select_account"]}))
 
 // callback route for google to redirect to
-router.get("/google/redirect", passport.authenticate("google", {failureRedirect: '/'}), (req, res) => {
+router.get("/api/user/auth/google/redirect", passport.authenticate("google", {failureRedirect: '/'}), (req, res) => {
   const user = req.user
   const userJWT = jwt.sign({user}, process.env.JWT_KEY)
 
@@ -15,11 +15,11 @@ router.get("/google/redirect", passport.authenticate("google", {failureRedirect:
 
     // if it is user's first time logging in the redirect to sign up flow
    if(req.user.new_register){
-     res.redirect('/auth/signup')
+     res.redirect('/api/user/signup')
    }else{
     
     // otherwise just send them to their homepage
-     res.redirect('/feed')
+     res.redirect('/api/user/feed')
    }
   }
 )

@@ -1,6 +1,8 @@
 const { MongoMemoryServer } = require('mongodb-memory-server')
 const mongoose = require('mongoose')
 
+jest.mock('../nats')
+
 let mongo
 
 beforeAll(async () => {
@@ -14,7 +16,10 @@ beforeAll(async () => {
 })
 
 beforeEach(async () => {
+  jest.clearAllMocks()
+
   const collections = await mongoose.connection.db.collections()
+  
   for(let collection of collections) {
     await collection.deleteMany({})
   }

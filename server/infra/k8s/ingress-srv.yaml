@@ -14,7 +14,7 @@ spec:
             backend:
               serviceName: post-ingestion-srv
               servicePort: 3000
-          - path: /?(.*)
+          - path: /api/user/?(.*)
             backend:
               serviceName: user-srv
               servicePort: 3000

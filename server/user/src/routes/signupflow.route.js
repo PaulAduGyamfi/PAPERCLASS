@@ -4,7 +4,7 @@ const { userMustSignUp } = require('../middleware/requireLogin')
 // const User = require('../models/User')
 // const Program = require('../models/Program')
 
-router.get('/signup',userMustSignUp, async (req, res) => {
+router.get('/api/user/signup',userMustSignUp, async (req, res) => {
 // await Program.create({
 //     programName: "Comp Sci",
 //     programDescription: "coding tings"
@@ -22,7 +22,7 @@ router.get('/signup',userMustSignUp, async (req, res) => {
   
 })
 
-router.post('/signup', (req, res) => {
+router.post('/api/user/signup', (req, res) => {
 })
 
 module.exports = router
