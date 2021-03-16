@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router()
 const passport = require('passport')
 const jwt = require('jsonwebtoken')
+const { UserCreatedPublisher } = require('../events/publishers/user-created-publisher')
+const nats =  require('../nats')
 
 // auth with google
 router.get("/api/user/auth/google", passport.authenticate("google",{scope: ["profile", "email"],hd: ["stonybrook.edu"], prompt: ["select_account"]}))
@@ -15,11 +17,14 @@ router.get("/api/user/auth/google/redirect", passport.authenticate("google", {fa
 
     // if it is user's first time logging in the redirect to sign up flow
    if(req.user.new_register){
-     res.redirect('/api/user/signup')
+
+    new UserCreatedPublisher(nats.client).publish(req.user)
+
+     res.redirect('/signup')
    }else{
     
     // otherwise just send them to their homepage
-     res.redirect('/api/user/feed')
+     res.redirect('/feed')
    }
   }
 )

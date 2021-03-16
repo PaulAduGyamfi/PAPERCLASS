@@ -4,16 +4,16 @@ module.exports = {
     if(req.isAuthenticated() && !req.user.new_register){
       return next()
     }else if(req.isAuthenticated() && req.user.new_register){
-      res.redirect('/api/user/signup')
+      res.redirect('/signup')
     }else{
       // if user is not logged in send them back to login/sign up page
-      res.redirect('/api/user/')
+      res.redirect('/')
     }
   },
   userIsLoggedIn: (req, res, next) => {
     if(req.isAuthenticated()){
       // if user is logged in redirect them to their homepage
-      res.redirect('/api/user/feed')
+      res.redirect('/feed')
     }else{
       return next()
     }
@@ -23,10 +23,10 @@ module.exports = {
       return next()
     }
     else if(req.isAuthenticated() && !req.user.new_register){
-      res.redirect('/api/user/feed')
+      res.redirect('/feed')
     }
     else{
-      res.redirect('/api/user')
+      res.redirect('/')
     }
   }
 }
