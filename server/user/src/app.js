@@ -6,8 +6,8 @@ const cookieSession = require('cookie-session')
 require('dotenv').config()
 require('./config/passport.config')(passport)
 const oauth = require('./routes/oauth.route')
-const signup = require('./routes/signupflow.route')
-const auth = require('./routes/auth.route')
+const onboarding = require('./routes/onboarding.route')
+const login = require('./routes/login.route')
 
 
 const app = express()
@@ -32,9 +32,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 
-app.use(auth)
+app.use(login)
 app.use(oauth)
-app.use(signup)
+app.use(onboarding)
 
 
 module.exports = app
