@@ -35,6 +35,6 @@ it('returns the post if the post is found ', async () => {
       .send()
       .expect(200)
 
-     expect(JSON.parse(postResponse.text).text).toEqual(text)
+     expect(postResponse.body.text).toEqual(text)
 
 })

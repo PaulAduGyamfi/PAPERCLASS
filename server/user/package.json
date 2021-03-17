@@ -5,7 +5,13 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "jest --env=node"
+    "test": "jest --watchAll --no-cache"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./src/test/setup.js"
+    ]
   },
   "keywords": [],
   "author": "",

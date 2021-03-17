@@ -8,6 +8,7 @@ require('./config/passport.config')(passport)
 const oauth = require('./routes/oauth.route')
 const onboarding = require('./routes/onboarding.route')
 const login = require('./routes/login.route')
+const getUserById = require('./routes/get-user-by-id.route')
 
 
 const app = express()
@@ -35,6 +36,7 @@ app.use(passport.session())
 app.use(login)
 app.use(oauth)
 app.use(onboarding)
+app.use(getUserById)
 
 
 module.exports = app

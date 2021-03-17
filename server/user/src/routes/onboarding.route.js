@@ -13,7 +13,7 @@ router.get('/signup',userMustSignUp, async (req, res) => {
   
 })
 
-router.post('/api/user/username', async (req, res) => {
+router.post('/c/usr/username', async (req, res) => {
    
    const { username } = req.body
    const username_aplhanumeric_only = /^([a-zA-Z0-9_-]+)$/
@@ -38,7 +38,7 @@ router.post('/api/user/username', async (req, res) => {
 })
 
 
-router.post('/api/user/join', currentUser, requireAuth, (req, res) => {
+router.post('/c/usr/join', currentUser, requireAuth, (req, res) => {
 
    // publish user:created event 
    new UserCreatedPublisher(nats.client).publish(req.currentUser)
