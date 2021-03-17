@@ -5,9 +5,9 @@ const passport = require('passport')
 const cookieSession = require('cookie-session')
 require('dotenv').config()
 require('./config/passport.config')(passport)
-const oauth = require('./routes/oauth.route')
+const oauth = require('./routes/google-oauth.route')
 const onboarding = require('./routes/onboarding.route')
-const login = require('./routes/login.route')
+const login = require('./routes/temp.route')
 const getUserById = require('./routes/get-user-by-id.route')
 
 
