@@ -8,7 +8,7 @@ const nats = require('../nats')
 
 
 
-router.post('/', currentUser, requireAuth, async (req,res)=>{
+router.post('/c/post', currentUser, requireAuth, async (req,res)=>{
   const id = randomBytes(8).toString('hex')
   const { text, attachments} = req.body
 

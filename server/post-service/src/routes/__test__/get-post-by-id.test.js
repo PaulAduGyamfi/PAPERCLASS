@@ -1,29 +1,40 @@
 const request = require('supertest')
-const app = require('../../../../post-ingestion/src/app')
-const { fakeAuth } = require('../../../../post-ingestion/src/routes/__test__/test-authenticator')
+const app = require('../../app')
+const { fakeAuth } = require('./test-authenticator')
+ const Post = require('../../models/Post')
 
-xit('returns a 404 if the post is not found', async () => {
+ it('should receive statsus 302 (redirect) if user is not authorized', async () => {
   await request(app)
-  .get('/api/post/675757676576')
+  .get('/g/post/583fh9403nf')
+  .send()
+  .expect(302)
+ })
+
+it('returns a 404 if the post is not found', async () => {
+  await request(app)
+  .get('/g/post/48924hbfbb238')
+  .set('Cookie', fakeAuth())
   .send()
   .expect(404)
 })
 
-xit('returns the post if the post is found ', async () => {
+it('returns the post if the post is found ', async () => {
   const text = "Who did the CSE homework?"
-  const response = await request(app)
-    .post('/api/post')
-    .set('Cookie', fakeAuth())
-    .send({
-      text
-    })
-    .expect(201)
+  const post = new Post({
+    author: 'paul',
+    author_id: '8djeu7he7he8j3o',
+    text,
+    post_id: '4j4j8rj4ue8eh37'
+  })
+
+  await post.save()
 
     const postResponse = await request(app)
-      .get(`/api/post/${response.body.post_id}`)
+      .get(`/g/post/${post.post_id}`)
+      .set('Cookie', fakeAuth())
       .send()
       .expect(200)
 
-    expect(postResponse.body.text).toEqual(text)
+     expect(JSON.parse(postResponse.text).text).toEqual(text)
 
 })

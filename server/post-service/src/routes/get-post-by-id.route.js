@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
-// const Post = require('../../../post/src/models/Post')
+const Post = require('../models/Post')
+const { currentUser, requireAuth } = require('@pgcomm/common')
 
-router.get('/:id', async (req, res) => {
-  // const post = await Post.findOne({post_id: req.params.id})
+router.get('/g/post/:id', currentUser, requireAuth, async (req, res) => {
+  const post = await Post.findOne({post_id: req.params.id})
 
-  // if(!post){
-  //   return res.sendStatus(404)
-  // }
+  if(!post){
+    return res.sendStatus(404)
+  }
 
-  // res.send(post)
+  res.send(post)
 })
 
 module.exports = router

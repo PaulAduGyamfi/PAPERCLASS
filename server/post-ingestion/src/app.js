@@ -18,6 +18,6 @@ app.use(
   })
 )
 
-app.use('/api/post', createPost)
+app.use(createPost)
 
 module.exports = app
