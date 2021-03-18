@@ -9,7 +9,7 @@ router.get('/', userIsLoggedIn,(req, res)=>{
 
 // user homepage route
 router.get('/feed', requireLogin,(req, res) => {
-  res.send("THIS IS YOUR HOMEPAGE")
+  res.send(req.user)
 })
 
 module.exports = router
