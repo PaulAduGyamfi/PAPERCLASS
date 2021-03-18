@@ -5,7 +5,7 @@ const { UserCreatedPublisher } = require('../events/publishers/user-created-publ
 const nats =  require('../nats')
 const { currentUser, requireAuth } = require('@pgcomm/common')
 const User = require('../models/User')
-
+const redis = require('../redis')
 
 router.get('/signup',userMustSignUp, async (req, res) => {
 
@@ -35,14 +35,23 @@ router.post('/c/usr/username', async (req, res) => {
       return res.status(422).json({error: 'That username is already taken'})
    }
 
+   await redis.client.setex('123', 3600, username)
+
+   res.send('user cached')
+
 })
 
 
-router.post('/c/usr/join', currentUser, requireAuth, (req, res) => {
+router.get('/c/usr/join', async (req, res) => {
 
    // publish user:created event 
-   new UserCreatedPublisher(nats.client).publish(req.currentUser)
-
+   // new UserCreatedPublisher(nats.client).publish(req.currentUser)
+   await redis.client.get('123', (err, data) => {
+      if(err) throw err
+      console.log(data)
+      res.send(data)
+   })
+   
 })
 
 

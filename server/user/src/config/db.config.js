@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const nats = require('../nats')
+const redis = require('../redis')
 require('dotenv').config()
 
 const connectDB  = async () => {
@@ -12,7 +13,12 @@ const connectDB  = async () => {
     process.on('SIGINT', () => nats.client.close())
     process.on('SIGTERM', () => nats.client.close())
 
-    
+    await redis.createClient(process.env.REDIS_HOST)
+    redis.client.on('end', () => {
+      console.log('Redis connection ended!')
+      process.exit()
+    })
+
     const connect = await mongoose.connect(process.env.MONGO_USER_URI, {
       useNewUrlParser:true,
       useUnifiedTopology: true,
