@@ -13,7 +13,7 @@ router.get('/signup',userMustSignUp, async (req, res) => {
   
 })
 
-router.post('/c/usr/username', async (req, res) => {
+router.post('/c/usr/username', currentUser,async (req, res) => {
    
    const { username } = req.body
    const username_aplhanumeric_only = /^([a-zA-Z0-9_-]+)$/
@@ -35,21 +35,21 @@ router.post('/c/usr/username', async (req, res) => {
       return res.status(422).json({error: 'That username is already taken'})
    }
 
-   await redis.client.setex('123', 3600, username)
+   await redis.client.setex(req.currentUser.user._id, 3600, JSON.stringify(req.currentUser.user))
 
    res.send('user cached')
 
 })
 
 
-router.get('/c/usr/join', async (req, res) => {
+router.get('/c/usr/join', currentUser, async (req, res) => {
 
    // publish user:created event 
    // new UserCreatedPublisher(nats.client).publish(req.currentUser)
-   await redis.client.get('123', (err, data) => {
+   await redis.client.get(req.currentUser.user._id, (err, data) => {
       if(err) throw err
       console.log(data)
-      res.send(data)
+      res.send(JSON.parse(data))
    })
    
 })
