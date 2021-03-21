@@ -15,6 +15,13 @@ spec:
       containers:
         - name: friend
           image: padugyamfi/friend
+          env:
+            - name: POSTGRES_HOST
+              value: friend-postgres-srv
+            - name: POSTGRES_USER
+              value: pauladu
+            - name: POSTGRES_PASSWORD
+              value: password
 ---
 apiVersion: v1
 kind: Service

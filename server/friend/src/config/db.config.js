@@ -1,15 +1,14 @@
-const mongoose = require('mongoose')
+const postgres = require('../postgres')
 require('dotenv').config()
 
 const connectDB  = async () => {
   try{
-    const connect = await mongoose.connect(process.env.MONGO_FRIEND_URI, {
-      useNewUrlParser:true,
-      useUnifiedTopology: true,
-      useFindAndModify: false
-    })
+    await postgres.createClient()
+    
+    postgres.client.query('SELECT NOW() as now')
+      .then(res => console.log(res.rows[0]))
+      .catch(e => console.error(e.stack))
 
-    console.log(`MongoDB connected:${connect.connection.host}`)
   }catch(err){
     console.error(err)
     process.exit(1)

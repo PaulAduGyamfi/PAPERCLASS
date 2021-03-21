@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: friend-mongo-depl
+  name: friend-postgres-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: friend-mongo
+      app: friend-postgres
   template:
     metadata:
       labels:
-        app: friend-mongo
+        app: friend-postgres
     spec:
       containers:
-        - name: friend-mongo
-          image: mongo
+        - name: friend-postgres
+          image: postgres
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: friend-mongo-srv
+  name: friend-postgres-srv
 spec:
   selector:
-    app: friend-mongo
+    app: friend-postgres
   ports:
     - name: db
       protocol: TCP
-      port: 27017
-      targetPort: 27017
+      port: 5432
+      targetPort: 5432
