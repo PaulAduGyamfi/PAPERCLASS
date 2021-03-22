@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const randomBytes = require('randombytes')
+const {randomBytes} = require('crypto')
 const Post = require('../models/Post')
 const { requireAuth, currentUser } = require('@pgcomm/common')
 const { PostCreatedPublisher } = require('../events/publishers/post-created-publisher')
@@ -12,8 +12,8 @@ router.post('/c/post', currentUser, requireAuth, async (req,res)=>{
   const id = randomBytes(8).toString('hex')
   const { text, attachments} = req.body
 
-  const new_post = new Post({
-    author: req.currentUser.full_name,
+  const new_post = await new Post({
+    author: req.currentUser.username,
     author_id: req.currentUser._id,
     text,
     post_id: id

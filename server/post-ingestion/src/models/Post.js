@@ -52,13 +52,17 @@ const PostSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'User'
   }],
+  origin_id:{
+    type: String,
+    default: null,
+  },
   comment_count: {
     type: Number,
     default: 0
   },
   comments: [{
     type: ObjectId,
-    ref: 'User'
+    ref: 'Post'
   }],
   post_url: {
     type: String,

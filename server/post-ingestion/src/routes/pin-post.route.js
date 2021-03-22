@@ -1,9 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const Post = require('../models/Post')
 const { requireAuth, currentUser } = require('@pgcomm/common')
 
-router.post('', (req, res) => {
+router.post('/c/post/pin', (req, res) => {
+    const { _id } = req.body
+    const post = Post.findOne({ _id: _id })
 
+    // publish event
 })
 
 module.exports = router
