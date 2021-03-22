@@ -18,9 +18,10 @@ router.post('/c/post/comment/', currentUser, requireAuth, async (req, res) => {
 
   await new_comment.save()
 
-  const post = await Post.findOne({ post_id: origin_id})
+  const post = await Post.findOne({ _id: origin_id})
 
   await post.comments.push(new_comment)
+  post.comment_count = post.comment_count +1
   await post.save()
 
   res.status(201).send(post)
