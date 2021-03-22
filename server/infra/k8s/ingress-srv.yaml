@@ -10,6 +10,10 @@ spec:
     - host: paperclass.com
       http:
         paths:
+          - path: /f/status/?(.*)
+            backend:
+              serviceName: friend-srv
+              servicePort: 3000
           - path: /g/post/?(.*)
             backend:
               serviceName: post-service-srv
