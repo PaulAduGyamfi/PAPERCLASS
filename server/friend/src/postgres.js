@@ -14,8 +14,7 @@ class Postgres {
   createClient(){
     this.#client = new Client({
       user: process.env.POSTGRES_USER, 
-      host: process.env.POSTGRES_HOST, 
-      database: 'pauladu', 
+      host: process.env.POSTGRES_HOST,  
       password: process.env.POSTGRES_PASSWORD  
     })
 

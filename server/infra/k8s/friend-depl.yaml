@@ -17,7 +17,7 @@ spec:
           image: padugyamfi/friend
           env:
             - name: POSTGRES_HOST
-              value: friend-postgres-srv
+              value: host.docker.internal
             - name: POSTGRES_USER
               value: pauladu
             - name: POSTGRES_PASSWORD
