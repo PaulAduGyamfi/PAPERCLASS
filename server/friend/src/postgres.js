@@ -15,7 +15,9 @@ class Postgres {
     this.#client = new Client({
       user: process.env.POSTGRES_USER, 
       host: process.env.POSTGRES_HOST,  
-      password: process.env.POSTGRES_PASSWORD  
+      password: process.env.POSTGRES_PASSWORD,
+      idleTimeoutMillis: 0,
+      connectionTimeoutMillis: 0,
     })
 
     return new Promise((resolve, reject) => {

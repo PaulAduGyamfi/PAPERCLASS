@@ -12,7 +12,7 @@ const { fakeAuth } = require('./test-authenticator')
 
 it('returns a 404 if the post is not found', async () => {
   await request(app)
-  .get('/g/post/48924hbfbb238')
+  .get('/g/post/7056f3via483eb00a7a67id')
   .set('Cookie', fakeAuth())
   .send()
   .expect(404)
@@ -30,7 +30,7 @@ it('returns the post if the post is found ', async () => {
   await post.save()
 
     const postResponse = await request(app)
-      .get(`/g/post/${post.post_id}`)
+      .get(`/g/post/${post._id}`)
       .set('Cookie', fakeAuth())
       .send()
       .expect(200)
