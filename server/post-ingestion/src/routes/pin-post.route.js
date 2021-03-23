@@ -7,7 +7,7 @@ router.post('/c/post/pin', (req, res) => {
     const { _id } = req.body
     const post = Post.findOne({ _id: _id })
 
-    // publish event
+    // publish post:pinned event
 })
 
 module.exports = router

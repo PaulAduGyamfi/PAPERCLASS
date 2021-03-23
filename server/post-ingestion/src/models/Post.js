@@ -44,11 +44,11 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  up_vote: [{
+  up_votes: [{
     type: ObjectId,
     ref: 'User'
   }],
-  down_vote: [{
+  down_votes: [{
     type: ObjectId,
     ref: 'User'
   }],
