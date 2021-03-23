@@ -22,12 +22,13 @@ router.post('/c/post/u', async (req, res) => {
   }
   // If user dwonvoted before but the selects to upvote, remove downvote and place in upvote
   else if(post.down_votes.includes(id)){
-    const index = await post.down_votes.index(id)
+    const index = await post.down_votes.indexOf(id)
     await post.down_votes.splice(index, 1)
     await post.up_votes.push(id)
     await post.save()
   }
   else{
+    // Otherwise if user hasn't voted before just push to upvotes
     await post.up_votes.push(id)
     await post.save()
   }
