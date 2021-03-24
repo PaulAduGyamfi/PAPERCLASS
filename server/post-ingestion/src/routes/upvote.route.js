@@ -3,7 +3,7 @@ const router = express.Router()
 const Post = require('../models/Post')
 const { requireAuth, currentUser } = require('@pgcomm/common')
 
-router.post('/c/post/u', async (req, res) => {
+router.post('/c/post/u', currentUser, requireAuth, async (req, res) => {
   
   const { id, post_id } = req.body
   let post
