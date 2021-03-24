@@ -3,7 +3,7 @@ const router = express.Router()
 const { requireAuth, currentUser} = require('@pgcomm/common')
 const Post = require('../models/Post')
 
-router.delete('/c/post/delete', currentUser, async (req, res) => {
+router.delete('/c/post/delete', currentUser, requireAuth, async (req, res) => {
   const { id, user_id } = req.body
   let post
 
@@ -14,7 +14,7 @@ router.delete('/c/post/delete', currentUser, async (req, res) => {
   }
     
     
-    if(user_id === req.currentUser.user._id){
+    if(user_id === post.author_id){
 
       // Hard Delete post if it doesn't have any comments
       if(post.comments.length == 0 && post.comment_count == 0){
@@ -42,6 +42,9 @@ router.delete('/c/post/delete', currentUser, async (req, res) => {
         return res.status(200).send(post)
       }
 
+    }
+    else{
+      return res.status(404)
     }
   
 

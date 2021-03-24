@@ -57,6 +57,7 @@ it('should return a status 201 if comment is successfully created ', async () =>
     })
     .expect(201)
 
-    expect(commentResponse.body.comment_count).toEqual(1)
-    expect(commentResponse.body.comments.length).toEqual(1)
+    const origin_post = await Post.findOne({_id: commentResponse.body.origin_id})
+    expect(origin_post.comment_count).toEqual(1)
+    expect(origin_post.comments.length).toEqual(1)
 })

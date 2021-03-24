@@ -16,31 +16,6 @@ spec:
         - name: user
           image: padugyamfi/user
           env:
-            - name: PORT
-              valueFrom:
-                secretKeyRef:
-                  name: user-keys
-                  key: PORT
-            - name: MONGO_USER_URI
-              valueFrom:
-                secretKeyRef:
-                  name: user-keys
-                  key: MONGO_USER_URI
-            - name: GOOGLE_CLIENT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: user-keys
-                  key: GOOGLE_CLIENT_ID
-            - name: CLIENT_SECRET
-              valueFrom:
-                secretKeyRef:
-                  name: user-keys
-                  key: CLIENT_SECRET
-            - name: JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: user-keys
-                  key: JWT_KEY
             - name: REDIS_HOST
               value: user-redis-srv
             - name: NATS_CLIENT_ID

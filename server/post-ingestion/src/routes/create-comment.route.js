@@ -31,7 +31,7 @@ router.post('/c/post/comment/', currentUser, requireAuth, async (req, res) => {
 
   // publish comment:created event
   
-  res.status(201).send(post)
+  res.status(201).send(new_comment)
 })
 
 module.exports = router
