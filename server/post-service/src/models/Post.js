@@ -2,11 +2,11 @@ const mongoose = require('mongoose')
 const {ObjectId} = mongoose.Schema.Types
 
 const PostSchema = new mongoose.Schema({
-  created_at: {
+  created_on: {
     type: Date,
     default: Date.now
   },
-  modified_at: {
+  modified_on: {
     type: Date,
     default: Date.now
   },
@@ -44,14 +44,18 @@ const PostSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
-  up_vote: [{
+  up_votes: [{
     type: ObjectId,
     ref: 'User'
   }],
-  down_vote: [{
+  down_votes: [{
     type: ObjectId,
     ref: 'User'
   }],
+  origin_id:{
+    type: String,
+    default: null,
+  },
   comment_count: {
     type: Number,
     default: 0
@@ -63,7 +67,7 @@ const PostSchema = new mongoose.Schema({
   post_url: {
     type: String,
   },
-  deleted_at: {
+  deleted_on: {
     type: Date,
     default: null
   }
