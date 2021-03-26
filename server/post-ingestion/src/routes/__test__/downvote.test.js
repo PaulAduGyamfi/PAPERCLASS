@@ -34,7 +34,8 @@ it("should should push users downvote if the user hasn't voted", async () => {
 
     expect(downvoteResponse.body.down_votes.length).toEqual(1)
     expect(downvoteResponse.body.down_votes.includes(userid)).toEqual(true)
-    expect(downvoteResponse.body.vote_count).toEqual(1)
+    expect(downvoteResponse.body.vote_count.count).toEqual(1)
+    expect(downvoteResponse.body.vote_count.downvote_count).toEqual(1)
 })
 
 it('should remove upvote and add downvote to post if user previously upvoted', async () => {
@@ -66,11 +67,13 @@ it('should remove upvote and add downvote to post if user previously upvoted', a
 
   expect(downvoteResponse.body.down_votes.length).toEqual(1)
   expect(downvoteResponse.body.down_votes.includes(userid)).toEqual(true)
+  expect(downvoteResponse.body.vote_count.downvote_count).toEqual(1)
   
   expect(downvoteResponse.body.up_votes.length).toEqual(0)
   expect(downvoteResponse.body.up_votes.includes(userid)).toEqual(false)
+  expect(downvoteResponse.body.vote_count.upvote_count).toEqual(0)
   
-  expect(downvoteResponse.body.vote_count).toEqual(1)
+  expect(downvoteResponse.body.vote_count.count).toEqual(1)
 })
 
 it('should remove downvote if user previously downvoted', async () => {
@@ -102,5 +105,6 @@ it('should remove downvote if user previously downvoted', async () => {
 
     expect(downvoteResponse.body.down_votes.length).toEqual(0)
     expect(downvoteResponse.body.down_votes.includes(userid)).toEqual(false)
-    expect(downvoteResponse.body.vote_count).toEqual(0)
+    expect(downvoteResponse.body.vote_count.count).toEqual(0)
+    expect(downvoteResponse.body.vote_count.downvote_count).toEqual(0)
 })

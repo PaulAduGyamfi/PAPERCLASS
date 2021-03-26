@@ -14,16 +14,6 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  repost_id:{
-    type: String,
-  },
-  repost_count: {
-    type: Number,
-    default: 0
-  },
-  repost_author: [{
-    type: String,
-  }],
   author: {
     type: String,
     required: true
@@ -41,8 +31,18 @@ const PostSchema = new mongoose.Schema({
 
   }],
   vote_count: {
-    type: Number,
-    default: 0
+    count: {
+      type: Number,
+      default: 0
+    },
+    upvote_count: {
+      type: Number,
+      default: 0
+    },
+    downvote_count: {
+      type: Number,
+      default: 0
+    }
   },
   up_votes: [{
     type: ObjectId,
@@ -63,6 +63,22 @@ const PostSchema = new mongoose.Schema({
   comments: [{
     type: ObjectId,
     ref: 'Post'
+  }],
+  reposted: {
+    type: Boolean,
+    default: false,
+  },
+  repost_origin_id:{
+    type: String,
+    default: null
+  },
+  repost_count: {
+    type: Number,
+    default: 0
+  },
+  reposters: [{
+    type: ObjectId,
+    ref: 'User'
   }],
   post_url: {
     type: String,
