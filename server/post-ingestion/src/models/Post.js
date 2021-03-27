@@ -64,7 +64,7 @@ const PostSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'Post'
   }],
-  reposted: {
+  is_repost: {
     type: Boolean,
     default: false,
   },
@@ -72,13 +72,21 @@ const PostSchema = new mongoose.Schema({
     type: String,
     default: null
   },
-  repost_count: {
+  share_count: {
     type: Number,
     default: 0
   },
-  reposters: [{
+  is_quote: {
+    type: Boolean,
+    default: false,
+  },
+  quote_origin_id:{
+    type: String,
+    default: null
+  },
+  quoted_this_post: [{
     type: ObjectId,
-    ref: 'User'
+    ref: 'Post'
   }],
   post_url: {
     type: String,
