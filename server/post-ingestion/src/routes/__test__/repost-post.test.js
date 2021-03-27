@@ -24,8 +24,7 @@ it('should return a new post that is a repost post ', async () => {
       .send({
         author: "two10p",
         author_id: "231942342342",
-        text: 'This is an original post',
-        quote_id: post._id,
+        repost_id: post._id,
       })
       .expect(201)
 

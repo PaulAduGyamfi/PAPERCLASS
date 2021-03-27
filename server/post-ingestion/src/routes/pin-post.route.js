@@ -5,7 +5,7 @@ const { requireAuth, currentUser } = require('@pgcomm/common')
 
 router.post('/c/post/pin', (req, res) => {
     const { _id } = req.body
-    const post = Post.findOne({ _id: _id })
+    const post = Post.findById(_id )
 
     // publish post:pinned event
 })
