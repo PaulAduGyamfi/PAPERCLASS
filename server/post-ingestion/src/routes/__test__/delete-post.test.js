@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const id1 = new mongoose.Types.ObjectId().toHexString()
 const id2 = new mongoose.Types.ObjectId().toHexString()
 const id3 = new mongoose.Types.ObjectId().toHexString()
+const id4 = new mongoose.Types.ObjectId().toHexString()
 
 
 it('should soft delete post if it has comments', async () => {
@@ -112,4 +113,42 @@ it('should hard delete post from db if it has no comments', async () => {
 
     expect(deletePost.body.deletedCount).toEqual(1)
     expect(findPost).toEqual(null)
+})
+
+it('should remove post from parent quoted list if it is a quoted post', async () => {
+  const post = await new Post({
+    author: "two10p",
+    author_id: "231942342342",
+    text: 'This is an original post',
+    post_id: 'uhe293e32hb2hy2233',
+    _id: id4
+  })
+
+  await post.save()
+
+  const quotePost = await new Post({
+    author: "two10p",
+    author_id: "231942342342",
+    text: 'This is an original post',
+    is_quote: true,
+    quote_origin_id: id4,
+    post_id: 'uhe293e32hb2hy2233',
+})
+
+await quotePost.save()
+
+
+
+  const deletePost = await request(app)
+    .delete('/c/post/delete')
+    .set('Cookie', fakeAuth())
+    .send({
+      id: quotePost._id,
+      user_id: quotePost.author_id
+    })
+    .expect(200)
+
+    expect(deletePost.body.deletedCount).toEqual(1)
+    expect(post.quoted_this_post.includes(quotePost._id)).toEqual(false)
+    expect(post.share_count).toEqual(0)
 })

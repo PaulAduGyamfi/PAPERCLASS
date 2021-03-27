@@ -52,6 +52,10 @@ const PostSchema = new mongoose.Schema({
     type: ObjectId,
     ref: 'User'
   }],
+  is_comment: {
+    type: Boolean,
+    default: false,
+  },
   origin_id:{
     type: String,
     default: null,

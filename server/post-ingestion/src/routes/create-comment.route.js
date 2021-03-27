@@ -14,7 +14,8 @@ router.post('/c/post/comment/', currentUser, requireAuth, async (req, res) => {
     author_id,
     text,
     post_id: id,
-    origin_id
+    origin_id,
+    is_comment: true
   })
 
   await new_comment.save()

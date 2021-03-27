@@ -11,25 +11,29 @@ router.post('/c/post/r', async (req, res) => {
 
     try {
         post = await Post.findById(repost_id)
+
+        const new_post = await new Post({
+          author,
+          author_id,
+          is_repost: true,
+          repost_origin_id: repost_id,
+          post_id: id
+      })
+  
+        await new_post.save()
+  
+        post.share_count = post.share_count + 1
+  
+        await post.save()
+  
+        res.status(201).send(new_post)
+
     } catch (error) {
-      return res.status(422)
+
+        return res.status(422)
+
     }
 
-      const new_post = await new Post({
-        author,
-        author_id,
-        is_repost: true,
-        repost_origin_id: repost_id,
-        post_id: id
-    })
-
-      await new_post.save()
-
-      post.share_count = post.share_count + 1
-
-      await post.save()
-
-      res.status(201).send(new_post)
 })
 
 module.exports = router
