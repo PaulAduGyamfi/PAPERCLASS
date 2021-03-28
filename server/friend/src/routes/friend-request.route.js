@@ -5,8 +5,8 @@ const postgres = require('../postgres')
 router.post('/f/status/r', async (req, res) => {
     const { requester_id, addressee_id } = req.body
 
-    const text = 'INSERT INTO relationship (requester_id, addressee_id, status_code, action_user_id) VALUES ($1, $2, $3, $4)'
-    const values = [requester_id, addressee_id, '0', requester_id]
+    const text = 'INSERT INTO relationship (requester_id, addressee_id, status_code, action_user_id, specified_date_time) VALUES ($1, $2, $3, $4, $5)'
+    const values = [requester_id, addressee_id, '0', requester_id, 'now()']
 
     try {
         const queryRes = await postgres.client.query(text, values)
