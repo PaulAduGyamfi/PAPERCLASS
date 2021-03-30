@@ -29,6 +29,10 @@ class Postgres {
         console.log(`Postgres connected:${process.env.POSTGRES_HOST}`)
         resolve()
       })
+
+      this.#client.on('error', (err) => {
+        reject(err)
+      })
     })
   }
 }
