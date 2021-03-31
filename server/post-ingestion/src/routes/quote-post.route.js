@@ -10,8 +10,11 @@ router.post('/c/post/q', async(req, res) => {
   const id = randomBytes(8).toString('hex')
   const { author, author_id, quote_id, text, attachment } = req.body
 
-  try {
      const post = await Post.findById(quote_id)
+
+     if(!post || post.deleted_on != null){
+      return res.sendStatus(404)
+    }
      
      const new_post = await new Post({
       author,
@@ -33,11 +36,9 @@ router.post('/c/post/q', async(req, res) => {
 
     res.status(201).send(new_post)
 
-  } catch (error) {
       
     return res.status(422)
 
-  }
 
 
 })

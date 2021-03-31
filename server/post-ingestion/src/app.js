@@ -10,6 +10,8 @@ const deletePost = require('./routes/delete-post.route')
 const quotePost = require('./routes/quote-post.route')
 const repostPost = require('./routes/repost-post.route')
 const updatePost = require('./routes/update-post.route')
+const pinPost = require('./routes/pin-post.route')
+
 require('dotenv').config()
 
 
@@ -33,5 +35,6 @@ app.use(deletePost)
 app.use(quotePost)
 app.use(repostPost)
 app.use(updatePost)
+app.use(pinPost)
 
 module.exports = app
