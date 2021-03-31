@@ -9,6 +9,7 @@ const downvote = require('./routes/downvote.route')
 const deletePost = require('./routes/delete-post.route')
 const quotePost = require('./routes/quote-post.route')
 const repostPost = require('./routes/repost-post.route')
+const updatePost = require('./routes/update-post.route')
 require('dotenv').config()
 
 
@@ -31,5 +32,6 @@ app.use(downvote)
 app.use(deletePost)
 app.use(quotePost)
 app.use(repostPost)
+app.use(updatePost)
 
 module.exports = app
