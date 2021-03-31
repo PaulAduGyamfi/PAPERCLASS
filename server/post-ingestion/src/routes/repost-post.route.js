@@ -9,10 +9,9 @@ const nats = require('../nats')
 router.post('/c/post/r', async (req, res) => {
     const id = randomBytes(8).toString('hex')
     const { author, author_id, repost_id } = req.body
-    let post
 
     try {
-        post = await Post.findById(repost_id)
+        const post = await Post.findById(repost_id)
 
         const new_post = await new Post({
           author,
@@ -29,7 +28,7 @@ router.post('/c/post/r', async (req, res) => {
         await post.save()
   
         new PostRepostedPublisher(nats.client).publish(new_post)
-        
+
         res.status(201).send(new_post)
 
     } catch (error) {
