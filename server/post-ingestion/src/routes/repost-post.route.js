@@ -34,8 +34,6 @@ router.post('/c/post/r', async (req, res) => {
 
         res.status(201).send(new_post)
 
-        return res.status(422)
-
 
 })
 
