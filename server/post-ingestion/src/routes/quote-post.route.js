@@ -3,6 +3,8 @@ const router = express.Router()
 const { requireAuth, currentUser} = require('@pgcomm/common')
 const Post = require('../models/Post')
 const {randomBytes} = require('crypto')
+const { PostQuotedPublisher } = require('../events/publishers/post-quoted-publisher')
+const nats = require('../nats')
 
 router.post('/c/post/q', async(req, res) => {
   const id = randomBytes(8).toString('hex')
@@ -27,6 +29,7 @@ router.post('/c/post/q', async(req, res) => {
 
     await post.save()
 
+    new PostQuotedPublisher(nats.client).publish(new_post)
 
     res.status(201).send(new_post)
 
