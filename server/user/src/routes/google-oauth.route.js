@@ -9,7 +9,7 @@ router.get("/api/user/auth/google", passport.authenticate("google",{scope: ["pro
 // callback route for google to redirect to
 router.get("/api/user/auth/google/redirect", passport.authenticate("google", {failureRedirect: '/'}), (req, res) => {
   const user = req.user
-  const userJWT = jwt.sign({user}, process.env.JWT_KEY)
+  const userJWT = jwt.sign({user}, process.env.COOKIE_KEY)
 
   req.session.jwt = userJWT
 
