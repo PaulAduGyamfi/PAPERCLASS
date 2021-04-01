@@ -32,8 +32,8 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
-    - image: padugyamfi/post-service
-      context: post-service
+    - image: padugyamfi/timeline
+      context: timeline
       docker:
         dockerfile: Dockerfile
       sync:

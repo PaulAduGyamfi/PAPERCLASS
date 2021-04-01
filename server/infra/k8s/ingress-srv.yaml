@@ -16,7 +16,7 @@ spec:
               servicePort: 3000
           - path: /g/post/?(.*)
             backend:
-              serviceName: post-service-srv
+              serviceName: timeline-srv
               servicePort: 3000
           - path: /c/post/?(.*)
             backend:
