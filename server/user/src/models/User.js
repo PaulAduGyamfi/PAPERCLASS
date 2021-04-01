@@ -95,6 +95,12 @@ const UserSchema = new mongoose.Schema({
     required: true
   }
 
+}, {
+  toJSON: {
+    transform(doc, ret) {
+      delete ret.__v
+    }
+  }
 })
 
 module.exports = mongoose.model('User', UserSchema)
