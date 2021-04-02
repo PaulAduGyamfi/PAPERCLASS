@@ -21,7 +21,12 @@ router.post('/c/post', currentUser, requireAuth, async (req,res)=>{
 
   await new_post.save()
 
-  new PostCreatedPublisher(nats.client).publish(new_post)
+  const data = {
+    id: new_post._id,
+    author_id: author_id
+  }
+
+  new PostCreatedPublisher(nats.client).publish(data)
 
   res.status(201).send(new_post)
   
