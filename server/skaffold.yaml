@@ -40,3 +40,11 @@ build:
         manual:
           - src: 'src/**/*.js'
             dest: .
+    - image: padugyamfi/post-processor
+      context: post-processor
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
