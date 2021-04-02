@@ -1,5 +1,6 @@
 const nats = require('../nats')
 const redis = require('../redis')
+const { FriendListListener } = require('../events/listeners/friend-list-listener')
 
 const connectDB  = async () => {
   try{
@@ -16,6 +17,8 @@ const connectDB  = async () => {
       console.log('Redis connection ended!')
       process.exit()
     })
+
+    new FriendListListener(nats.client).listen()
 
   }catch(err){
     console.error(err)

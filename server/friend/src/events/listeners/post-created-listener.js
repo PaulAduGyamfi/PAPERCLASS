@@ -24,7 +24,12 @@ class PostCreatedListener extends Listener {
     })
 
     // console.log(friendlist)
-    new FriendListPublisher(nats.client).publish(friendlist)
+    const sendObject = {
+      post_id: id,
+      friendlist
+    }
+
+    new FriendListPublisher(nats.client).publish(sendObject)
 
     msg.ack()
   }
