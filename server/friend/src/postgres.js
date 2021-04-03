@@ -18,6 +18,8 @@ class Postgres {
       password: process.env.POSTGRES_PASSWORD,
       idleTimeoutMillis: 0,
       connectionTimeoutMillis: 0,
+      reconnectOnConnectionError: true,
+      waitForReconnectConnectionMillis: 0,
     })
 
     return new Promise((resolve, reject) => {
