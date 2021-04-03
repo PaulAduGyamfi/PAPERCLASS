@@ -25,6 +25,7 @@ class PostCreatedListener extends Listener {
 
     // console.log(friendlist)
     const sendObject = {
+      author_id,
       post_id: id,
       friendlist
     }
