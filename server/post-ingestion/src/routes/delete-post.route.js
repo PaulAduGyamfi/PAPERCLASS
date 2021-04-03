@@ -5,13 +5,13 @@ const Post = require('../models/Post')
 
 router.delete('/c/post/delete', currentUser, requireAuth, async (req, res) => {
   const { id, user_id } = req.body
-  let post
 
-  try {
-    post = await Post.findOne({_id: id})
-  } catch (error) {
-    return res.sendStatus(404)
-  }
+
+    const post = await Post.findOne({_id: id})
+
+    if(!post || post.deleted_on != null){
+      return res.sendStatus(404)
+    }
     
     
     if(user_id === post.author_id){
