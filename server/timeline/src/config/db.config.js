@@ -1,8 +1,15 @@
 const mongoose = require('mongoose')
+const redis = require('../redis')
 require('dotenv').config()
 
 const connectDB  = async () => {
   try{
+    await redis.createClient(process.env.REDIS_HOST)
+    redis.client.on('end', () => {
+      console.log('Redis connection ended!')
+      process.exit()
+    })
+
     const connect = await mongoose.connect(process.env.MONGO_POST_URI, {
       useNewUrlParser:true,
       useUnifiedTopology: true,
