@@ -6,6 +6,7 @@ require('dotenv').config()
 const getPostById = require('./routes/get-post-by-id.route')
 const getPostsByUserId = require('./routes/get-posts-by-userid.route')
 const getUserTimeline = require('./routes/get-user-timeline.route')
+const getHomeTimeline = require('./routes/get-home-timeline.route')
 
 
 const app = express()
@@ -23,5 +24,6 @@ app.use(
 app.use(getPostById)
 app.use(getPostsByUserId)
 app.use(getUserTimeline)
+app.use(getHomeTimeline)
 
 module.exports = app
