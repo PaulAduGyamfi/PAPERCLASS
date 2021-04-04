@@ -9,7 +9,7 @@ class PostCreatedListener extends Listener {
   _queueGroupName = queueGrouName
 
   async onMessage(data, msg) {
-    const { id, author_id } = data
+    const { id, author_id, timestamp } = data
     console.log('[Post ID: ' + id + '] [Created By: '+ author_id+']')
 
     const text = 'SELECT * FROM relationship WHERE ((requester_id = $1 OR addressee_id = $1) AND status_code = $2)'
@@ -27,7 +27,8 @@ class PostCreatedListener extends Listener {
     const sendObject = {
       author_id,
       post_id: id,
-      friendlist
+      friendlist,
+      timestamp
     }
 
     new FriendListPublisher(nats.client).publish(sendObject)

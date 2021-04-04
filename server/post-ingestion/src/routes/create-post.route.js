@@ -23,7 +23,8 @@ router.post('/c/post', currentUser, requireAuth, async (req,res)=>{
 
   const data = {
     id: new_post._id,
-    author_id: author_id
+    author_id: author_id,
+    timestamp: new_post.created_on
   }
 
   new PostCreatedPublisher(nats.client).publish(data)

@@ -9,11 +9,18 @@ class FriendListListener extends Listener {
   async onMessage(data, msg) {
      console.log(data)
 
-    redis.client.SADD(data.author_id, data.post_id)
+     const member = JSON.stringify({
+      post_id: data.post_id, 
+      timestamp: data.timestamp
+    })
+
+      console.log(member)
+
+    redis.client.SADD(data.author_id, member)
 
     data.friendlist.forEach((msgbox) => {
       const key = msgbox
-      const member = data.post_id
+      
       redis.client.SADD(key, member)
     })
   

@@ -11,8 +11,9 @@ router.get('/g/post/timeline/user/:id', async (req, res) => {
     const fanout = async (callback) => {
       redis.client.SMEMBERS(req.params.id, (err, result) => {
         
-        result.forEach(e => {
-          message_box.push(e)
+        result.forEach((e) => {
+          const post_obj = JSON.parse(e)
+          message_box.push(post_obj.post_id)
         })
 
         callback()
