@@ -13,7 +13,7 @@ router.get('/signup',userMustSignUp, async (req, res) => {
   
 })
 
-router.post('/c/usr/join', userMustSignUp, currentUser,async (req, res) => {
+router.post('/api/c/usr/join', userMustSignUp, currentUser,async (req, res) => {
    // username validation
    const { username } = req.body
    const username_aplhanumeric_only = /^([a-zA-Z0-9_-]+)$/
@@ -53,7 +53,7 @@ router.post('/c/usr/join', userMustSignUp, currentUser,async (req, res) => {
 })
 
 
-router.get('/c/usr', currentUser, async (req, res) => {
+router.get('/api/c/usr', currentUser, async (req, res) => {
 
      
    await redis.client.get(req.currentUser.user._id, (err, data) => {
