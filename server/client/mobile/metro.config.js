@@ -5,8 +5,6 @@
  * @format
  */
 
-const path = require('path');
-
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -16,15 +14,4 @@ module.exports = {
       },
     }),
   },
-  resolver: {
-    extraNodeModules: new Proxy(
-      {},
-      {
-        get: (target, name) => {
-          return path.join(__dirname, `node_modules/${name}`);
-        },
-      },
-    ),
-  },
-  watchFolders: [path.resolve(__dirname, '../')],
 };

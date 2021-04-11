@@ -49,7 +49,7 @@ build:
           - src: 'src/**/*.js'
             dest: .
     - image: padugyamfi/web
-      context: client/packages/web
+      context: client/web
       docker:
         dockerfile: Dockerfile
       sync:
