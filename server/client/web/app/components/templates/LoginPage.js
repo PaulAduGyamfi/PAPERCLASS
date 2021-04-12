@@ -1,13 +1,7 @@
-import Button from '../elements/button'
-import Router from 'next/router'
+import LoginPageLayout from '../layouts/LoginPage-Layout'
 
 const LoginPage = () => {
-  const loginIn = async () => {
-    Router.push('/api/user/auth/google')
-  }
-  return (
-    Button("Click Me", loginIn)
-  )
+  return <LoginPageLayout />
 }
 
 export default LoginPage
