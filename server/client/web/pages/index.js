@@ -1,3 +1,4 @@
+import LoginPage from '../app/components/templates/LoginPage'
 export default () => {
-  return <h1>Login Page</h1>
+  return <LoginPage />
 }
