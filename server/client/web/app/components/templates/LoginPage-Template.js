@@ -1,4 +1,4 @@
-import LoginPageLayout from '../layouts/LoginPage-Layout'
+import LoginPageLayout from '../layouts/LoginPage-Layout/LoginPage-Layout'
 
 const LoginPageTemplate = () => {
   return <LoginPageLayout />

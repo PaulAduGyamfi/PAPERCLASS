@@ -56,3 +56,7 @@ html[data-theme='dark'] {
 * {
   font-family: "Proxima Nova";
 }
+
+html, body, #_next {
+  height: 100%;
+}
