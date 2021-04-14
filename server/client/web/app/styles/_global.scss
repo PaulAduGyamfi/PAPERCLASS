@@ -1,0 +1,58 @@
+
+/*****************************
+          FONTS
+*****************************/
+@font-face {
+  font-family: "Proxima Nova";
+  src: url('../../public/fonts/ProximaNova/ProximaNova-Reg.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+/*****************************
+          COLORS
+*****************************/
+
+html{
+
+  --background: #FFF;
+  --border: #D6D9DC;
+  --box: #F5F5F5;
+  --button: #EFEFEF;
+  --button-active: #F3F3F3;
+  --button-hover: #DDDDDD;
+
+  /* S.O colors */
+  --black-900: #0C0D0E;
+  --black-800: #242729;
+  --black-750: #2F3337;
+  --black-700: #3C4146;
+  --black-600: #535A60;
+  --black-500: #6A737C;
+  --black-400: #848D95;
+  --black-350: #9199A1;
+  --black-300: #9FA6AD;
+  --black-200: #BBC0C4;
+  --black-150: #C8CCD0;
+  --black-100: #D6D9DC;
+  --black-75: #E4E6E8;
+  --black-50: #EFF0F1;
+  --black-25: #FAFAFB;
+
+
+}
+
+html[data-theme='dark'] {
+
+  --background: #181818;
+  --box: #202020;
+  --button: #2D2D2D;
+  --button-pressed: #222222;
+  --button-hover: #3D3D3D;
+  
+}
+
+* {
+  font-family: "Proxima Nova";
+}
