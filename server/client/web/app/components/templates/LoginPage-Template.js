@@ -1,7 +1,7 @@
 import LoginPageLayout from '../layouts/LoginPage-Layout'
 
-const LoginPage = () => {
+const LoginPageTemplate = () => {
   return <LoginPageLayout />
 }
 
-export default LoginPage
+export default LoginPageTemplate

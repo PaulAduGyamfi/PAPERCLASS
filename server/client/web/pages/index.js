@@ -1,4 +1,8 @@
-import LoginPage from '../app/components/templates/LoginPage'
-export default () => {
-  return <LoginPage />
+import LoginPageTemplate from '../app/components/templates/LoginPage-Template'
+
+
+const LoginPage = () => {
+  return <LoginPageTemplate />
 }
+
+export default LoginPage
