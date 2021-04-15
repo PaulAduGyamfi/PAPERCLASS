@@ -17,7 +17,7 @@ const LoginPageLayout = () => {
                   <div className={styles.loginPageLayoutLoginBodyWrapper}>{/* Login Body Components Group */}
                     <div className={styles.loginPageLayoutLoginBodyTextWrapper}>
                       <div>
-                        Easily Sign in with your stonybrook.edu email
+                        Easily sign in with your stonybrook.edu email
                       </div>
                     </div>
                     <LoginButton />
@@ -32,13 +32,13 @@ const LoginPageLayout = () => {
                     <div className={styles.loginPageLayoutLoginBodyGetAppContainer}>
                       <div className={styles.loginPageLayoutLoginBodyGetAppWrapper}>
                         <div>
-                          <a>
-                            <img src="/images/appstore/apple-ios-badge(B).svg" width={136} height={40} />
+                          <a href="#">
+                            <img alt="Available on the App Store" src="/images/appstore/apple-ios-badge(B).svg" width={136} height={40} />
                           </a>
                         </div>
                         <div>
-                          <a>
-                            <img src="/images/appstore/google-play-badge.png" height={58} />
+                          <a href="#">
+                            <img alt="Available on Google Play" src="/images/appstore/google-play-badge.png" height={58} />
                           </a>
                         </div>
                       </div>
