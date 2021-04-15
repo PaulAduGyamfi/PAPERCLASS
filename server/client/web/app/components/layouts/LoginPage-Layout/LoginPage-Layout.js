@@ -21,14 +21,16 @@ const LoginPageLayout = () => {
                       </div>
                     </div>
                     <LoginButton />
-                    <div>{/* Divider wrapper (--- or ----- )*/}
-                      <div>------------</div>
-                      <div>or</div>
-                      <div>------------</div>
+                    <div className={styles.loginPageLayoutLoginBodyDividerContainer}>
+                      <div className={styles.loginPageLayoutLoginBodyDividerLineWrapper}>{/* Divider wrapper (--- or ----- )*/}
+                        <div><hr className={styles.loginPageLayoutLoginBodyDividerLine}/></div>
+                        <div className={styles.loginPageLayoutLoginBodyDividerText}>or</div>
+                        <div><hr className={styles.loginPageLayoutLoginBodyDividerLine}/></div>
+                      </div>
                     </div>
-                    <div> Get the app.</div>
-                    <div>
-                      <div>
+                    <div className={styles.loginPageLayoutLoginBodyGetAppText}> Get the app.</div>
+                    <div className={styles.loginPageLayoutLoginBodyGetAppContainer}>
+                      <div className={styles.loginPageLayoutLoginBodyGetAppWrapper}>
                         <div>
                           <a>
                             <img src="/images/appstore/apple-ios-badge(B).svg" width={136} height={40} />

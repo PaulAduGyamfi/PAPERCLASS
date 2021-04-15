@@ -16,7 +16,7 @@
 }
 
 .loginPageLayoutArticleContainer {
-  background-color: aqua;
+  // background-color: aqua;
   padding-bottom: 32px;
   width: 100%;
 }
@@ -33,7 +33,7 @@
 }
 
 .loginPageLayoutLoginBodyContainer{
-  background-color: hotpink;
+  // background-color: hotpink;
   width: 100%;
 }
 
@@ -46,6 +46,49 @@
 
 .loginPageLayoutLoginBodyTextWrapper {
   margin: 0 40px 40px 20px;
+}
+
+.loginPageLayoutLoginBodyDividerContainer{
+  margin: 20px 40px;
+}
+
+.loginPageLayoutLoginBodyDividerLineWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.loginPageLayoutLoginBodyDividerLine {
+  height: 0.1px;
+  background-color: var(--black-300);
+  width: 120px;
+  border: 0 solid transparent;
+}
+
+.loginPageLayoutLoginBodyDividerText{
+  text-transform: uppercase;
+  margin: 0 18px;
+  font-weight: 600;
+}
+
+.loginPageLayoutLoginBodyGetAppText {
+  margin: 10px 20px;
+  width: 100%;
+}
+
+.loginPageLayoutLoginBodyGetAppContainer {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.loginPageLayoutLoginBodyGetAppWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
 }
 
 .loginPageLayoutSubFooterContainer {
