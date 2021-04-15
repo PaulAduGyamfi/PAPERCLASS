@@ -1,3 +1,58 @@
-.loginPageLayoutWrapper{
+.loginPageLayoutContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  text-align: center;
+}
 
+.loginPageLayoutTopWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+  min-height: 812px;
+  justify-content: space-between;
+}
+
+.loginPageLayoutArticleContainer {
+  background-color: aqua;
+  padding-bottom: 32px;
+  width: 100%;
+}
+
+.loginPageLayoutLoginBodyContainer {
+  padding-bottom: 60px;
+}
+
+.loginPageLayoutLoginBodyWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.loginPageLayoutLoginBodyContainer{
+  background-color: hotpink;
+  width: 100%;
+}
+
+.loginPageLayoutLoginBodyWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.loginPageLayoutLoginBodyTextWrapper {
+  margin: 0 40px 40px 20px;
+}
+
+.loginPageLayoutSubFooterContainer {
+  background-color: greenyellow;
+  width: 100%;
+}
+
+.loginPageLayoutFooterContainer {
+  width: 100%;
 }

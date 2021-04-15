@@ -10,6 +10,31 @@
   font-display: swap;
 }
 
+h1 {
+  font-weight: 800;
+  font-size: 64px;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 40px;
+}
+
+h3 {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+subtitle {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+div {
+  font-weight: 500;
+  font-size: 16px;
+}
+
 /*****************************
           COLORS
 *****************************/
@@ -55,8 +80,11 @@ html[data-theme='dark'] {
 
 * {
   font-family: "Proxima Nova";
+  overflow-x: hidden;
+  font-size: 14px;
 }
 
 html, body, #_next {
   height: 100%;
 }
+

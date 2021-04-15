@@ -4,22 +4,22 @@ import styles from './LoginPage-Layout.module.scss'
 
 const LoginPageLayout = () => {
   return (
-    <section className={styles.loginPageLayoutWrapper}>
+    <section className={styles.loginPageLayoutContainer}>
     
-        <main>{/* Top Wrapper no Footer */}
+        <main className={styles.loginPageLayoutTopWrapper}>{/* Top Wrapper no Footer */}
 
-          
-          <nav>{/*  Navbar */}
-
-          </nav>
-
-          <article>{/* Middle Body Wrapper */}
-            <div>
-              <div>
+          <article className={styles.loginPageLayoutArticleContainer}>{/* Middle Body Wrapper */}
+            <div>{/* ONLY ON DESKTOP */}</div>
+            <div className={styles.loginPageLayoutLoginBodyContainer}>
+              <div className={styles.loginPageLayoutLoginBodyWrapper}>
                 <h1>LOGO HERE</h1>
-                <div>{/* Login Body Components Container */}
-                  <div>{/* Login Body Components Group */}
-                    <div>Easily Sign in with your stonybrook.edu email</div>
+                <div className={styles.loginPageLayoutLoginBodyContainer}>{/* Login Body Components Container */}
+                  <div className={styles.loginPageLayoutLoginBodyWrapper}>{/* Login Body Components Group */}
+                    <div className={styles.loginPageLayoutLoginBodyTextWrapper}>
+                      <div>
+                        Easily Sign in with your stonybrook.edu email
+                      </div>
+                    </div>
                     <LoginButton />
                     <div>{/* Divider wrapper (--- or ----- )*/}
                       <div>------------</div>
@@ -47,11 +47,11 @@ const LoginPageLayout = () => {
             </div>
           </article>
           
-          <div>SUB FOOTER</div>
+          <div className={styles.loginPageLayoutSubFooterContainer}>SUB FOOTER</div>
 
         </main>
         
-        <footer>{/* Bottom Wrapper for Footer */}
+        <footer className={styles.loginPageLayoutFooterContainer}>{/* Bottom Wrapper for Footer */}
           <Footer />
         </footer>
 
