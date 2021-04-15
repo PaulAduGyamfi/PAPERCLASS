@@ -1,7 +1,56 @@
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: red;
+  align-items: center;
+  // background-color: red;
   width: 100%;
+  margin: 0 0 auto 0;
+}
+
+.footerTopSection {
+  // background-color: violet;
+  margin-top: 24px;
+}
+
+.footerTopSectionContainer {
+
+}
+
+.footerTopSectionWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 0 16px;
+}
+
+.footerTopSectionItemContainer {
+  margin: 0 8px 12px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerTopSectionItemText {
+  text-align: center;
+  overflow: hidden;
+  line-height: 16px;
+  color: var(--black-400);
+}
+
+.footerBottomSection {
+  width: 100%;
+}
+
+.footerBottomSectionContainer {
+  margin: 12px 0;
+}
+
+.footerBottomSectionWrapper {
+
+}
+
+.footerBottomSectionText {
+  text-align: center;
+  color: var(--black-400);
 }

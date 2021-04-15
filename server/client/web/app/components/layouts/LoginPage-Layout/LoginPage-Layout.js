@@ -12,7 +12,7 @@ const LoginPageLayout = () => {
             <div>{/* ONLY ON DESKTOP */}</div>
             <div className={styles.loginPageLayoutLoginBodyContainer}>
               <div className={styles.loginPageLayoutLoginBodyWrapper}>
-                <h1>LOGO HERE</h1>
+                <h1>[ LOGO HERE ]</h1>
                 <div className={styles.loginPageLayoutLoginBodyContainer}>{/* Login Body Components Container */}
                   <div className={styles.loginPageLayoutLoginBodyWrapper}>{/* Login Body Components Group */}
                     <div className={styles.loginPageLayoutLoginBodyTextWrapper}>
@@ -49,7 +49,7 @@ const LoginPageLayout = () => {
             </div>
           </article>
           
-          <div className={styles.loginPageLayoutSubFooterContainer}>SUB FOOTER</div>
+          <div className={styles.loginPageLayoutSubFooterContainer}></div>
 
         </main>
         

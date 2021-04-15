@@ -30,11 +30,6 @@ subtitle {
   font-size: 24px;
 }
 
-div {
-  font-weight: 500;
-  font-size: 16px;
-}
-
 /*****************************
           COLORS
 *****************************/
@@ -86,5 +81,9 @@ html[data-theme='dark'] {
 
 html, body, #_next {
   height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 

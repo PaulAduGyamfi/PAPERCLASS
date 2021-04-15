@@ -3,38 +3,43 @@ import styles from './Footer.module.scss'
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <div>
-        <div>
+      <div className={styles.footerTopSection}>
+        <div className={styles.footerTopSectionContainer}>
 
-          <div>
-            <div>
+          <div className={styles.footerTopSectionWrapper}>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>About</div>
+                <div className={styles.footerTopSectionItemText}>About</div>
               </a>
             </div>
-            <div>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>Terms</div>
+                <div className={styles.footerTopSectionItemText}>Terms</div>
               </a>
             </div>
-            <div>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>Privacy</div>
+                <div className={styles.footerTopSectionItemText}>Privacy</div>
               </a>
             </div>
-            <div>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>Discord</div>
+                <div className={styles.footerTopSectionItemText}>Help</div>
               </a>
             </div>
-            <div>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>Status</div>
+                <div className={styles.footerTopSectionItemText}>Discord</div>
               </a>
             </div>
-            <div>
+            <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
-                <div>Report a Bug</div>
+                <div className={styles.footerTopSectionItemText}>Status</div>
+              </a>
+            </div>
+            <div className={styles.footerTopSectionItemContainer}>
+              <a href='#'>
+                <div className={styles.footerTopSectionItemText}>Report a Bug</div>
               </a>
             </div>
           </div>
@@ -44,10 +49,10 @@ const Footer = () => {
         </div>
       </div>
       
-      <div>
-        <div>
-          <div>
-            © 2021 Website Name, Inc.
+      <div className={styles.footerBottomSection}>
+        <div className={styles.footerBottomSectionContainer}>
+          <div className={styles.footerBottomSectionWrapper}>
+            <div className={styles.footerBottomSectionText}>© 2021 Website Name, Inc.</div>
           </div>
         </div>
       </div>
