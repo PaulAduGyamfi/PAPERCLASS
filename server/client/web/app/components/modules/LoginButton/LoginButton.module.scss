@@ -15,6 +15,10 @@
     background-color: var(--black-25);
     border-color: var(--black-150);
   }
+
+  @media (max-width: 323px) {
+    padding: 10px 45px;
+  }
 }
 
 .loginButtonInnerWrap {
