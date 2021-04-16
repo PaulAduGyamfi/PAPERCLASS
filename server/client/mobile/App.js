@@ -25,7 +25,7 @@ import {InAppBrowser} from 'react-native-inappbrowser-reborn';
 const App = () => {
   const openLink = async () => {
     try {
-      const url = 'https://www.google.com';
+      const url = 'http://paperclass.com/api/user/auth/google';
       if (await InAppBrowser.isAvailable()) {
         const result = await InAppBrowser.open(url, {
           // iOS Properties
