@@ -29,6 +29,11 @@ const Footer = () => {
             </div>
             <div className={styles.footerTopSectionItemContainer}>
               <a href='#'>
+                <div className={styles.footerTopSectionItemText}>Github</div>
+              </a>
+            </div>
+            <div className={styles.footerTopSectionItemContainer}>
+              <a href='#'>
                 <div className={styles.footerTopSectionItemText}>Discord</div>
               </a>
             </div>
