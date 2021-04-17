@@ -22,14 +22,7 @@ import {
 import LoginScreenTemplate from './src/app/components/templates/LoginScreen-Template';
 
 const App = () => {
-  return (
-    <SafeAreaView>
-      <StatusBar />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <LoginScreenTemplate />
-      </ScrollView>
-    </SafeAreaView>
-  );
+  return <LoginScreenTemplate />;
 };
 
 const styles = StyleSheet.create({

@@ -3,6 +3,7 @@ import {View, Text, Alert} from 'react-native';
 import Button from '../../elements/Button';
 import {Linking} from 'react-native';
 import {InAppBrowser} from 'react-native-inappbrowser-reborn';
+import styles from './LoginButton.styles';
 
 const LoginButton = () => {
   const login = async () => {
@@ -58,7 +59,13 @@ const LoginButton = () => {
     );
   };
 
-  return <Button buttonText={innerButton()} buttonFunction={login} />;
+  return (
+    <Button
+      buttonText={innerButton()}
+      buttonFunction={login}
+      style={styles.loginButton}
+    />
+  );
 };
 
 export default LoginButton;
