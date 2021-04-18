@@ -9,13 +9,13 @@ const styles = StyleSheet.create({
     height: 850,
     paddingTop: 50,
     overflow: 'hidden',
-    backgroundColor: 'red',
+    backgroundColor: '#AA26DA',
   },
 
   loginScreenLayoutTopConatainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'lime',
+    backgroundColor: '#AA26DA',
     minHeight: '50%',
     width: '100%',
   },
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   loginScreenLayoutBottomContainer: {
     width: '100%',
     height: '50%',
-    backgroundColor: '#f0fc',
+    backgroundColor: '#AA26DA',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
   loginScreenLayoutBottomModalContainer: {
     width: '95%',
     height: 330,
-    backgroundColor: 'purple',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 30,
+    borderRadius: 40,
     marginBottom: 35,
   },
 
@@ -43,15 +43,25 @@ const styles = StyleSheet.create({
     height: '100%',
     alignItems: 'center',
     justifyContent: 'space-evenly',
+    padding: 10,
   },
 
   loginScreenLayoutBottomModalHeader: {
     alignItems: 'center',
   },
 
+  loginScreenLayoutBottomModalHeaderTitle: {
+    fontFamily: 'ProximaNova-Bold',
+    fontSize: 24,
+    marginBottom: 20,
+  },
+
   loginScreenLayoutBottomModalFooter: {
     textAlign: 'center',
-    fontFamily: 'ProximaNova-Bold',
+    fontFamily: 'ProximaNova-Regular',
+    fontSize: 12,
+    paddingHorizontal: 25,
+    lineHeight: 18,
   },
 });
 

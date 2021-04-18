@@ -14,8 +14,12 @@ const LoginScreenLayout = () => {
         <View style={styles.loginScreenLayoutBottomModalContainer}>
           <View style={styles.loginScreenLayoutBottomModalWrapper}>
             <View style={styles.loginScreenLayoutBottomModalHeader}>
-              <Text>Welcome to Brand Name</Text>
-              <Text>Get started with your account</Text>
+              <Text style={styles.loginScreenLayoutBottomModalHeaderTitle}>
+                Welcome to Brand Name
+              </Text>
+              <Text style={styles.loginScreenLayoutBottomModalHeaderSubtitle}>
+                Get started with your account
+              </Text>
             </View>
             <LoginButton />
             <Text style={styles.loginScreenLayoutBottomModalFooter}>

@@ -7,8 +7,8 @@ const styles = StyleSheet.create({
     height: 45,
     width: '100%',
     paddingVertical: 15,
-    paddingHorizontal: 70,
-    backgroundColor: '#e5e5e5',
+    paddingHorizontal: 80,
+    backgroundColor: '#EFF0F1',
     borderRadius: 15,
   },
 });
