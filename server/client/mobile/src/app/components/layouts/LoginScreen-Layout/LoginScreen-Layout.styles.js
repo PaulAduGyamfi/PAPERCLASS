@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
 
   loginScreenLayoutBottomModalHeader: {
     alignItems: 'center',
+    paddingBottom: 30,
   },
 
   loginScreenLayoutBottomModalHeaderTitle: {
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     paddingHorizontal: 25,
     lineHeight: 18,
+    paddingTop: 50,
   },
 });
 

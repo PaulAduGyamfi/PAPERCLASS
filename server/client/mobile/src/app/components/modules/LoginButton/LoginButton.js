@@ -26,8 +26,8 @@ const LoginButton = () => {
 
   const innerButton = () => {
     return (
-      <View>
-        <View>
+      <View style={styles.loginButtonInnerWrap}>
+        <View style={styles.loginButtonGoogleLogo}>
           <Svg
             aria-hidden="true"
             className="native svg-icon iconGoogle"
@@ -52,7 +52,7 @@ const LoginButton = () => {
             />
           </Svg>
         </View>
-        <View>
+        <View style={styles.loginButtonInnerText}>
           <Text>Sign in with Google</Text>
         </View>
       </View>
