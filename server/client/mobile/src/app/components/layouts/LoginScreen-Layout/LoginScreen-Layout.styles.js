@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
 
   loginScreenLayoutBottomModalFooter: {
     textAlign: 'center',
+    fontFamily: 'ProximaNova-Bold',
   },
 });
 

@@ -14,6 +14,8 @@
 		64F86E083959CBD8F49283DB /* libPods-mobile-mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE63230314B8FCC2E197416 /* libPods-mobile-mobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AF58EDDAAB2ACA850A14C87A /* libPods-mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EDF40F86807E3055BA53633 /* libPods-mobile.a */; };
+		D9923DF1262BBD4000F2F010 /* ProximaNova-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9923DEF262BBD4000F2F010 /* ProximaNova-Bold.ttf */; };
+		D9923DF2262BBD4000F2F010 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D9923DF0262BBD4000F2F010 /* ProximaNova-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C45796E3E359AE057EB199 /* Pods-mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile.release.xcconfig"; path = "Target Support Files/Pods-mobile/Pods-mobile.release.xcconfig"; sourceTree = "<group>"; };
 		D60787A9515966D53CE4238F /* Pods-mobile-mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile-mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-mobile-mobileTests/Pods-mobile-mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9923DEF262BBD4000F2F010 /* ProximaNova-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Bold.ttf"; path = "../src/assets/fonts/ProximaNova-Bold.ttf"; sourceTree = "<group>"; };
+		D9923DF0262BBD4000F2F010 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ProximaNova-Regular.ttf"; path = "../src/assets/fonts/ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
 		E97EFB1730A39CF6691E2DAD /* Pods-mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobile.debug.xcconfig"; path = "Target Support Files/Pods-mobile/Pods-mobile.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -116,6 +120,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D9923DEF262BBD4000F2F010 /* ProximaNova-Bold.ttf */,
+				D9923DF0262BBD4000F2F010 /* ProximaNova-Regular.ttf */,
 				13B07FAE1A68108700A75B9A /* mobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* mobileTests */,
@@ -145,7 +151,6 @@
 				D60787A9515966D53CE4238F /* Pods-mobile-mobileTests.debug.xcconfig */,
 				27B6CFC0FFD3AA398004FEA1 /* Pods-mobile-mobileTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -241,6 +246,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9923DF1262BBD4000F2F010 /* ProximaNova-Bold.ttf in Resources */,
+				D9923DF2262BBD4000F2F010 /* ProximaNova-Regular.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
