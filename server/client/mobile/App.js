@@ -42,6 +42,11 @@ const App = () => {
           component={LoginScreenTemplate}
           options={navOptionHandler}
         />
+        <Stack.Screen
+          name="onboard"
+          component={OnboardingScreenTemplate}
+          options={navOptionHandler}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

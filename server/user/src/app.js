@@ -28,6 +28,8 @@ app.use(
 //   keys: [process.env.COOKIE_KEY]
 // }))
 
+app.use(require('express-useragent').express())
+
 // initialize passport
 app.use(passport.initialize()) 
 app.use(passport.session())
