@@ -6,7 +6,7 @@ import {LoginScreenTemplate, OnboardingScreenTemplate} from './screens';
 
 const Stack = createStackNavigator();
 
-const Routes = () => {
+const Navigator = () => {
   const linking = {
     prefixes: ['paperclass://'],
   };
@@ -29,4 +29,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+export default Navigator;
