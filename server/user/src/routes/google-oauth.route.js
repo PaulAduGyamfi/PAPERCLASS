@@ -20,7 +20,7 @@ router.get("/api/user/auth/google/redirect", userAgent, passport.authenticate("g
    if(req.user.new_register){
     
     if( device.platform === "iPhone"){
-      res.redirect(`paperclass://onboard/${req.user._id}`)
+      res.redirect(`paperclass://onboard?userId=${req.user._id}`)
     }else{
       res.redirect('/signup')
     }
