@@ -9,6 +9,7 @@ const oauth = require('./routes/google-oauth.route')
 const onboarding = require('./routes/onboarding.route')
 const login = require('./routes/temp.route')
 const getUserById = require('./routes/get-user-by-id.route')
+const currentUser = require('./routes/current-user.route')
 
 
 const app = express()
@@ -39,6 +40,7 @@ app.use(login)
 app.use(oauth)
 app.use(onboarding)
 app.use(getUserById)
+app.use(currentUser)
 
 
 module.exports = app

@@ -7,13 +7,17 @@ const { currentUser, requireAuth, } = require('@pgcomm/common')
 const User = require('../models/User')
 const redis = require('../redis')
 
-router.get('/signup',userMustSignUp, async (req, res) => {
+router.get('/api/signup', currentUser, requireAuth, async (req, res) => {
 
-   res.send(req.user)
+   res.send(req.currentUser)
   
 })
 
-router.post('/api/c/usr/join', userMustSignUp, currentUser,async (req, res) => {
+router.post('/api/c/usr/join', currentUser, requireAuth, async (req, res) => {
+   
+   if(!req.currentUser.user.new_register){
+      return res.redirect('/')
+   }
    // username validation
    const { username } = req.body
    const username_aplhanumeric_only = /^([a-zA-Z0-9_-]+)$/
